@@ -75,6 +75,8 @@ function largestPrimeFactor(n) {
   return factors[factors.length-1]
 }
 
-module.exports = largestPrimeFactor
+exports.prime = prime
+exports.generatePrimes = generatePrimes
+exports.largestPrimeFactor = largestPrimeFactor
 
-console.log(largestPrimeFactor(600851475143))
+//console.log(largestPrimeFactor(600851475143))
