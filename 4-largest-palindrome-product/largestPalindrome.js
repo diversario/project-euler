@@ -8,7 +8,7 @@ function largestPalindrome(numLength) {
     for (var k = i; k < max; k++) {
       product = i * k
 
-      if (isPalindrome(product) && product > palindrome) {
+      if (product > palindrome && isPalindrome(product)) {
         palindrome = product
       }
     }
