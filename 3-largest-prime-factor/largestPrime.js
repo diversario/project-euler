@@ -8,13 +8,14 @@ function generatePrimes(n) {
     , isPrime = true
 
   while (primeList.length < n) {
+    // do we have the prime we're about to calculate?
     if (memo[primeList.length + 1]) {
       primeList.push(memo[primeList.length + 1])
-      num += 2
       isPrime = true
+      // since we just pushed to primeList `num` is being set to that pushed number
+      num = memo[primeList.length]
     } else {
       var root = Math.sqrt(num)
-
       primeList.some(function (prime) {
         if (num % prime == 0) {
           isPrime = false
@@ -33,9 +34,9 @@ function generatePrimes(n) {
       } else {
         isPrime = true
       }
-
-      num += 2
     }
+
+    num += 2
   }
 
   return primeList
