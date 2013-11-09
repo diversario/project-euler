@@ -75,3 +75,5 @@ function largestPrimeFactor(n) {
 }
 
 module.exports = largestPrimeFactor
+
+console.log(largestPrimeFactor(600851475143))
