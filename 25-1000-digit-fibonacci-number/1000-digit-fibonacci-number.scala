@@ -1,14 +1,9 @@
-def fibTail(n: BigInt): BigInt = {
-  def _f(_n: Int, a: BigInt, b: BigInt): BigInt = _n match {
-    case `n` => a
-    case _ => _f(_n+1, b, a+b)
-  }
+import fibonacci._
 
-  _f(1, 1, 1)
-}
+var n = 0
 
-var n = 1
-
-while (fibTail(n).toString().length != 1000) n = n+1
+do {
+  n=n+1
+} while (fibonacci.get(n).toString.length < 1000)
 
 System.out.println(n)
