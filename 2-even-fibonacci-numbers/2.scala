@@ -12,13 +12,13 @@ def fib(n: Int): Int = {
 }
 
 // Tail-recursive, no memo
-def fibTail(n: BigInt): BigInt = {
-  def _f(_n: Int, a: BigInt, b: BigInt): BigInt = _n match {
+def fibTail(n: Int): Int = {
+  def _f(_n: Int, a: Int, b: Int): Int = _n match {
     case `n` => a
     case _ => _f(_n+1, b, a+b)
   }
 
-  _f(0, 1, 1)
+  _f(1, 1, 1)
 }
 
 def sumEvenFib(limit: Int): Int = {
