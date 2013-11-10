@@ -1,5 +1,6 @@
 var memo = scala.collection.mutable.HashMap[Int, Int]()
 
+// Recursive with memo
 def fib(n: Int): Int = {
   if (n == 0 || n == 1) n
   else {
@@ -10,6 +11,16 @@ def fib(n: Int): Int = {
   }
 }
 
+// Tail-recursive, no memo
+def fibTail(n: BigInt): BigInt = {
+  def _f(_n: Int, a: BigInt, b: BigInt): BigInt = _n match {
+    case `n` => a
+    case _ => _f(_n+1, b, a+b)
+  }
+
+  _f(0, 1, 1)
+}
+
 def sumEvenFib(limit: Int): Int = {
   var sum = 0
   var fSeq = 0
@@ -18,7 +29,7 @@ def sumEvenFib(limit: Int): Int = {
   while (fSeq < limit) {
     if (fSeq % 2 == 0) sum = sum + fSeq
     i = i + 1
-    fSeq = fib(i)
+    fSeq = fibTail(i)
   }
 
   sum
