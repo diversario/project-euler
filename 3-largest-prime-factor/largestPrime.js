@@ -64,6 +64,7 @@ function primeFactorize(n) {
 
     while (num % primeNum !== 0) {
       i++
+      primeNum = prime(i)
     }
 
     factors.push(primeNum)
