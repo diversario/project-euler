@@ -1,5 +1,5 @@
 // run from the root directory:
-// scala -classpath `pwd` 2-even-fibonacci-numbers/2.scala
+// scala -classpath `pwd`/packages 2-even-fibonacci-numbers/2.scala
 
 import fibonacci._
 

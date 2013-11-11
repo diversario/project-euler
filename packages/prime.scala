@@ -2,9 +2,9 @@ package primes
 
 import math.sqrt
 
-object prime {
+object primes {
   val memo: scala.collection.mutable.Map[Int, Int] = scala.collection.mutable.Map(0->0, 1->2)
-  
+
   def generate(n: Int): List[Int] = {
     if (n == 0) throw new Error("Argument must be an integer >= 1")
 
@@ -23,6 +23,7 @@ object prime {
 
         isPrime = true
 
+        // how do I break the loop?..
         for (p <- primeList) {
           if (num % p == 0) {
             isPrime = false

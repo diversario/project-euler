@@ -1,4 +1,4 @@
-// scala -classpath `pwd` 20-factorial-digit-sum/factorial-digit-sum.scala
+// scala -classpath `pwd`/packages 20-factorial-digit-sum/factorial-digit-sum.scala
 
 import factorial._
 
