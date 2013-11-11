@@ -3,13 +3,13 @@ package primes
 object primes {
   import math.sqrt
 
-  val memo: scala.collection.mutable.Map[Int, Int] = scala.collection.mutable.Map(0->0, 1->2)
+  val memo: scala.collection.mutable.Map[Double, Double] = scala.collection.mutable.Map(0.0->0.0, 1.0->2.0)
 
-  def generate(n: Int): List[Int] = {
+  def generate(n: Double): List[Double] = {
     if (n == 0) throw new Error("Argument must be an integer >= 1")
 
-    var primeList: List[Int] = List(2)
-    var num = 3
+    var primeList: List[Double] = List(2.0)
+    var num = 3.0
     var isPrime = true
 
     while (primeList.length < n) {
@@ -51,15 +51,15 @@ object primes {
     primeList
   }
 
-  def get(n: Int): Int = {
+  def get(n: Double): Double = {
     generate(n).last
   }
 
-  def factorize(n: Int): List[Int] = {
-    var factors: List[Int] = List()
+  def factorize(n: Double): List[Double] = {
+    var factors: List[Double] = List()
     var done = false
     var num = n
-    var primeNum = 0
+    var primeNum = 0.0
 
     while (!done) {
       var i = 1 // first prime number, 2

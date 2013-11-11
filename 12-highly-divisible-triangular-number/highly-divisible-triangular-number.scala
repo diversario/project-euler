@@ -1,10 +1,10 @@
 import primes._
 
-def findFactors(n: Int): List[Int] = {
+def findFactors(n: Double): List[Double] = {
   val primeFactors = primes.factorize(n)
-  var factors: List[Int] = List(1)
+  var factors: List[Double] = List(1)
 
-  def multiply(l: List[Int]): Unit = l match {
+  def multiply(l: List[Double]): Unit = l match {
     case head :: tail => {
       var i = 1
 
@@ -21,4 +21,19 @@ def findFactors(n: Int): List[Int] = {
 
   multiply(primeFactors)
   (factors ::: primeFactors).distinct.sorted
+}
+
+def generateTriangleNumbers(n: Int): Int = {
+  var s = 0
+  for (x <- 0 to n) s = s + x
+  s
+}
+
+def triangleNumberOverXDivisors(limit: Int): Int = {
+  var i = 1
+
+  while (findFactors(generateTriangleNumbers(i)).length < limit) {
+    i = i + 1
+  } 
+  i
 }
