@@ -50,21 +50,24 @@ function primeFactorize(n) {
   var factors = []
     , done = false
     , num = n
+    , primeNum
 
   while (!done) {
     var i = 1 // first prime number, 2
 
-    if (prime(i) >= num) {
+    primeNum = prime(i)
+
+    if (primeNum >= num) {
       done = true
       break;
     }
 
-    while (num % prime(i) !== 0) {
+    while (num % primeNum !== 0) {
       i++
     }
 
-    factors.push(prime(i))
-    num = num/prime(i)
+    factors.push(primeNum)
+    num = num/primeNum
   }
 
   return factors
@@ -77,6 +80,7 @@ function largestPrimeFactor(n) {
 
 exports.prime = prime
 exports.generatePrimes = generatePrimes
+exports.primeFactorize = primeFactorize
 exports.largestPrimeFactor = largestPrimeFactor
 
 //console.log(largestPrimeFactor(600851475143))
