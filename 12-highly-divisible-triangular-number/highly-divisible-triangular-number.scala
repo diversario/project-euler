@@ -23,17 +23,29 @@ def findFactors(n: Double): List[Double] = {
   (factors ::: primeFactors).distinct.sorted
 }
 
-def generateTriangleNumbers(n: Int): Int = {
-  var s = 0
-  for (x <- 0 to n) s = s + x
-  s
-}
+def generateTriangleNumbers(n: Double) = n * (n + 1) / 2
 
-def triangleNumberOverXDivisors(limit: Int): Int = {
-  var i = 1
+def triangleNumberOverXDivisors(limit: Double): Double = {
+  var i: Double = 1
+  var done = false
+  var max = 0
+  var m = 0.0
 
-  while (findFactors(generateTriangleNumbers(i)).length < limit) {
-    i = i + 1
+  while (!done) {
+    val n = generateTriangleNumbers(i)
+    val factors = findFactors(n)
+    val length = factors.length
+
+    if (length > max) {
+      max = length
+      m = i
+      System.out.printf(f"$m -> $max\n")
+    }
+
+    if (length >= limit) done = true
+    else i = i + 1
   } 
   i
 }
+
+System.out.println(triangleNumberOverXDivisors(100))
