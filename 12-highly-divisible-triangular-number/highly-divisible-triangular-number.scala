@@ -48,4 +48,4 @@ def triangleNumberOverXDivisors(limit: Double): Double = {
   i
 }
 
-System.out.println(triangleNumberOverXDivisors(100))
+System.out.println(triangleNumberOverXDivisors(500))

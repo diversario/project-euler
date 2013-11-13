@@ -16,22 +16,14 @@ object primes {
       // do we have the prime we're about to calculate?
       if (memo.getOrElse(primeList.length + 1, 0) != 0) {
         primeList = primeList :+ memo.get(primeList.length + 1).get
-        isPrime = true
         num = memo.get(primeList.length).get
       } else {
         val root = sqrt(num)
 
         isPrime = true
 
-        // how do I break the loop?..
-        for (p <- primeList) {
-          if (num % p == 0) {
-            isPrime = false
-          }
-          
-          if (isPrime && p > root) {
-            isPrime = true
-          }
+        for (p <- primeList if p <= root) {
+          isPrime = num % p != 0
         }
 
         if (isPrime) {
@@ -40,8 +32,6 @@ object primes {
           if (primeList.length > 1 && memo.getOrElse(primeList.length, 0) == 0) {
             memo(primeList.length) = num
           }
-        } else {
-          isPrime = true
         }
       }
 
@@ -80,5 +70,35 @@ object primes {
     }
 
     factors
+  }
+
+  def countDivisors(n: Double, primes: List[Double]): Int = {
+    var count = 1
+    var exponent = 1
+    var remain = n
+
+    var done = false
+
+    for (p <- primes if !done; i <- 0 until primes.length if !done) {
+      if (p * p > n) {
+        count = count * 2
+        done = true
+      } else {
+        exponent = 1
+
+        while (remain % p == 0) {
+          exponent = exponent + 1
+          remain = remain / p
+        }
+
+        count = count * exponent
+
+        if (remain == 1) {
+          done = true
+        }
+      }
+    }
+
+    count
   }
 }
